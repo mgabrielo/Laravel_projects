@@ -16,6 +16,7 @@ const Navbar = () => {
                 localStorage.removeItem('auth_name', res.data.username);
                 swal("Success", 'logout SucessFul', 'success');
                 history.push('/login')
+                window.location.reload();
             }
         })
     }
@@ -54,7 +55,16 @@ const Navbar = () => {
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" to="#">Collection</Link>
+                            <Link className="nav-link active" aria-current="page" to="/about">About Us</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/contact">Contacts</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/collections">Collection</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/cart">Cart</Link>
                         </li>
                         {AuthButtons}
                     </ul>

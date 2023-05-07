@@ -8,6 +8,9 @@ import axios from "axios";
 import AdminPrivateRoute from "./AdminPrivateRoute";
 import Page404 from "./components/errors/Page404";
 import Page403 from "./components/errors/Page403";
+import About from "./components/frontend/About";
+import Contact from "./components/frontend/Contact";
+import PublicRoute from "./PublicRoute";
 
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -18,12 +21,17 @@ axios.interceptors.request.use(function (config) {
   config.headers.Authorization = token ? `Bearer ${token}` : '';
   return config;
 })
+
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
+          {/* <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} /> */}
+          <AdminPrivateRoute path="/admin" name="Admin" />
+          <PublicRoute path='/' name='Home' />
           {/* <Route exact path="/login" component={Login} /> */}
           <Route path="/403" component={Page403} />
           <Route path="/404" component={Page404} />
@@ -38,7 +46,7 @@ function App() {
           {/* <Route exact path="/register" component={Register} /> */}
           {/* <Route path="/admin" name="Admin" render={(props) => <MasterLayout {...props} />} /> */}
 
-          <AdminPrivateRoute path="/admin" name="Admin" />
+
         </Switch>
       </Router>
     </div>

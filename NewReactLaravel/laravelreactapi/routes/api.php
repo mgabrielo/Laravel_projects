@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\FrontEndController;
 use App\Http\Controllers\API\ProductController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +22,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+Route::get('getCategory', [FrontEndController::class, 'category']);
+Route::get('fetch-products/{slug}', [FrontEndController::class, 'product']);
+Route::get('viewproductdetail/{category_slug}/{product_slug}', [FrontEndController::class, 'viewproduct']);
+Route::post('add-to-cart', [CartController::class, 'addtocart']);
+Route::post('add-to-cart', [CartController::class, 'addtocart']);
+Route::get('cart', [CartController::class, 'viewcart']);
+Route::put('cart-update-quantity/{cart_id}/{scope}', [CartController::class, 'updatequantity']);
+Route::delete('delete-cart-item/{cart_id}', [CartController::class, 'delete_cart_item']);
 
 Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::get('/checkingAuthenticated', function () {
@@ -33,6 +44,9 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::get('all-category', [CategoryController::class, 'allcategory']);
     //Products
     Route::post('store-product', [ProductController::class, 'store']);
+    Route::get('view-product', [ProductController::class, 'index']);
+    Route::get('edit-product/{id}', [ProductController::class, 'edit']);
+    Route::post('update-product/{id}', [ProductController::class, 'update']);
 });
 Route::middleware(['auth:sanctum'])->group(function () {
 
