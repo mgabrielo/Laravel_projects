@@ -306,7 +306,7 @@
                                         <li class="has-children">
                                             <a href="shop.html"><i class="surfsidemedia-font-smartphone"></i>
                                                 Cellphones</a>
-                                            <div class="dropdown-menu">
+                                            {{-- <div class="dropdown-menu">
                                                 <ul class="mega-menu d-lg-flex">
                                                     <li class="mega-menu-col col-lg-7">
                                                         <ul class="d-lg-flex">
@@ -377,7 +377,7 @@
                                                         </div>
                                                     </li>
                                                 </ul>
-                                            </div>
+                                            </div> --}}
                                         </li>
                                         <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Computer &
                                                 Office</a></li>
