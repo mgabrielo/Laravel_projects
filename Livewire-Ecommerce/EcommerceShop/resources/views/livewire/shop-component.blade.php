@@ -1,5 +1,15 @@
 {{-- <div> --}}
 <main class="main">
+    <style>
+        nav svg {
+            height: 20px;
+        }
+
+        nav .hidden {
+            display: block;
+        }
+    </style>
+
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
